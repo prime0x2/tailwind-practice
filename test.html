@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/output.css">
+</head>
+<body class="min-h-screen bg-slate-200 mx-20 text-center">
+    <h1 class="text-2xl font-semibold py-5">Money Master</h1>
+
+    <main class="flex items-center justify-center space-x-5">
+
+        <div class="flex-[50%] img-sec mx-auto">
+            <img class="w-[550px] rounded-xl" src="./images/eren.jpg" alt="">
+        </div>
+
+
+        <div class="flex-[50%] w-full form-sec text-center bg-white py-10 rounded-xl space-y-3">
+            <h1 class="text-lg font-semibold">Income</h1>
+
+            <div class="flex space-x-4 items-center">
+                <span class="flex-[40%] text-right font-medium">Income : </span>
+                <div class="flex-[60%] text-left">
+                    <input id="income" class="border-2 bg-gray-300 focus:outline-none px-2 py-1 rounded-sm" type="text">
+                </div>
+            </div>
+
+            <h1 class="text-lg font-semibold">Expenses</h1>
+
+            <div class="flex space-x-4 items-center">
+                <span class="flex-[40%] text-right font-medium">Food : </span>
+                <div class="flex-[60%] text-left">
+                    <input id="food" class="border-2 bg-gray-300 focus:outline-none px-2 py-1 rounded-sm" type="text">
+                </div>
+            </div>
+
+            <div class="flex space-x-4 items-center">
+                <span class="flex-[40%] text-right font-medium">Rent : </span>
+                <div class="flex-[60%] text-left">
+                    <input id="rent" class="border-2 bg-gray-300 focus:outline-none px-2 py-1 rounded-sm" type="text">
+                </div>
+            </div>
+
+            <div class="flex space-x-4 items-center">
+                <span class="flex-[40%] text-right font-medium">Clothes : </span>
+                <div class="flex-[60%] text-left">
+                    <input id="clothes" class="border-2 bg-gray-300 focus:outline-none px-2 py-1 rounded-sm" type="text">
+                </div>
+            </div>
+
+            <button onclick="calculate()" class="bg-blue-400 px-12 py-2 rounded-lg text-white shadow-lg shadow-blue-400/40">Calculate</button>
+            <br>
+            <p class="pt-2 font-medium text-lg">Total Expenses : <span id="totalExpenses">0</span></p>
+            <p class="pb-3 font-medium text-lg">Balance : <span id="balance">0</span></p>
+
+            <div class="space-x-4 font-semibold">
+                <span class="text-right font-medium">Save : </span>
+                <input id="save" class="border-2 bg-gray-300 focus:outline-none px-2 py-2 rounded-lg w-24" type="text">
+                &nbsp;&nbsp;&nbsp;&nbsp;%
+                <button onclick="save()" class="bg-blue-400 px-8 py-2 rounded-lg text-white shadow-lg shadow-blue-400/40">Save</button>
+            </div>
+
+            <p class="pt-3 font-medium text-lg">Saving Amount : <span id="savingAmount">0</span></p>
+            <p class="mb-3 font-medium text-lg">Remaining Balance : <span id="remainingBalance">0</span></p>
+            
+        </div>
+
+    </main>
+
+    <script src="./scripts/test.js"></script>
+</body>
+</html>

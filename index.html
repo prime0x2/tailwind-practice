@@ -9,57 +9,281 @@
     <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
 </head>
 <body>
-    <div class="min-h-screen bg-gray-300 relative">
-        <div class="sidebar absolute min-h-screen top-0 left-0 w-[280px] bg-slate-200 shadow-lg p-5 space-y-3">
+    <div class="min-h-screen relative flex bg-slate-300 dark:bg-slate-900">
+        <div id="sidebar" class="sidebar fixed overflow-hidden min-h-screen w-[280px] bg-slate-200 dark:bg-slate-800 shadow-lg p-5 space-y-3 rounded-tr-3xl rounded-br-3xl">
             <div class="logo-area pb-2 flex items-center justify-center space-x-3">
                 <img class="w-[50px]" src="./images/logo.png" alt="Logo">
-                <p class="text-2xl font-bold">Travel Solo</p>
+                <p class="text-2xl text-purple-700 font-bold dark:text-purple-500">Travel Solo</p>
             </div>
 
             <div class="link-area">
                 <ul class="w-full space-y-2">
-                    <li class="bg-purple-900/25 text-purple-900 font-semibold nav-link">
-                        <i class="text-lg fas fa-home-lg flex-[30%] text-center"></i>
+                    <li class="nav-link-active">
+                        <i class="fas fa-home-lg nav-link-icon"></i>
                         <a class="flex-[70%]" href="#">Home</a>
                     </li>
-                    <li class="hover:bg-purple-900/25 hover:text-purple-900 nav-link">
-                        <i class="text-lg fas fa-th flex-[30%] text-center"></i>
+                    <li class="nav-link">
+                        <i class="fas fa-th nav-link-icon"></i>
                         <a class="flex-[70%]" href="#">Explore</a>
                     </li>
-                    <li class="hover:bg-purple-900/25 hover:text-purple-900 nav-link">
-                        <i class="text-lg fas fa-bookmark flex-[30%] text-center"></i>
+                    <li class="nav-link">
+                        <i class="fas fa-bookmark nav-link-icon"></i>
                         <a class="flex-[70%]" href="#">Saved</a>
                     </li>
-                    <li class="hover:bg-purple-900/25 hover:text-purple-900 nav-link">
-                        <i class="text-lg fas fa-file-alt flex-[30%] text-center"></i>
+                    <li class="nav-link">
+                        <i class="fas fa-file-alt nav-link-icon"></i>
                         <a class="flex-[70%]" href="#">Subscriptions</a>
                     </li>
-                    <li class="hover:bg-purple-900/25 hover:text-purple-900 nav-link">
-                        <i class="text-lg fas fa-envelope flex-[30%] text-center"></i>
-                        <a class="flex-[70%]" href="#">Messages</a>
+                    <li class="nav-link">
+                        <i class="fas fa-envelope nav-link-icon"></i>
+                        <a class="flex-[57%]" href="#">Messages</a>
+                        <div class="flex-[13%] bg-purple-700 dark:bg-purple-600 text-white text-center py-1 rounded-full font-semibold">3</div>
                     </li>
-                    <li class="hover:bg-purple-900/25 hover:text-purple-900 nav-link">
-                        <i class="text-lg fas fa-cog flex-[30%] text-center"></i>
+                    <li class="nav-link">
+                        <i class="fas fa-cog nav-link-icon"></i>
                         <a class="flex-[70%]" href="#">Setting</a>
                     </li>
-                    <li class="hover:bg-purple-900/25 hover:text-purple-900 nav-link">
-                        <i class="text-lg fas fa-sign-out flex-[30%] text-center"></i>
+                    <li class="nav-link">
+                        <i class="fas fa-sign-out nav-link-icon"></i>
                         <a class="flex-[70%]" href="#">Logout</a>
                     </li>
                 </ul>
             </div>
-            <div class="border-2 border-b-neutral-600/30 w-full">
+            <div class="border-b-2 border-b-slate-400 border w-full">
             </div>
             <div class="sub-area w-full p-5">
-                <div class="h-[11.7rem] w-full bg-white flex flex-col justify-center items-center text-center rounded-2xl shadow-xl relative space-y-3">
+                <div class="h-[11.2rem] w-full bg-white dark:bg-slate-900 dark:text-white flex flex-col justify-center items-center text-center rounded-2xl shadow-xl dark:shadow-2xl relative space-y-3">
                     <img class="w-[40px]" src="./images/logo.png" alt="">
-                    <p class="font-semibold">Subscribe to our <br> new plan <a class="text-orange-600 underline decoration-orange-600" href="#">$25</a></p>
+                    <p class="font-medium">Subscribe to our <br> new plan <a class="text-orange-600 dark:text-orange-400" href="#">$25</a></p>
                     <button class="bg-purple-800 text-white font-medium px-3 py-2 rounded-lg">
-                        Subscribe Now <i class="text-sm fas fa-arrow-right"></i>
+                        Subscribe Now <i class="text-xs fas fa-arrow-right"></i>
                     </button>
                 </div>
             </div>
         </div>
+        <!-- End of Sidebar -->
+
+        <!-- Start of Main Body -->
+        <main id="main" class="absolute top-0 left-[280px] w-[calc(100%-280px)] px-8 py-5 dark:bg-slate-900">
+            <section class="top-bar flex items-center justify-between space-x-5">
+                <button id="toggleSidebar">
+                    <i class="fas fa-bars bg-purple-700 text-white px-3 py-2 rounded-lg"></i>
+                    <!-- <i class="fas fa-chevron-circle-left text-4xl text-purple-700 px-3 py-2 rounded-lg"></i> -->
+                </button>
+                
+                <div class="search-bar w-[270px] bg-slate-200 dark:bg-slate-800 flex items-center px-4 py-1 rounded-lg space-x-4 shadow-sm">
+                    <i class="far fa-search dark:text-white"></i>
+                    <input class="bg-transparent w-full focus:outline-none placeholder:text-sm placeholder:text-gray-600 dark:placeholder:text-white dark:text-white" type="text" placeholder="Search for anything...">
+                </div>
+                
+                <div class="flex items-center space-x-5">
+                    <button id="toggleDark" class="ring-2 ring-slate-700 dark:ring-slate-500 rounded-full overflow-hidden">
+                        <div class="dark:bg-slate-700 space-x-2 w-full px-3 py-1">
+                            <i class="fas fa-sun dark:text-white"></i>
+                            <i class="fas fa-moon dark:text-white"></i>
+                        </div>
+                    </button>
+                    <img class="w-11" src="./images/profile.png" alt="">
+                </div>
+            </section>
+
+            <!-- Explore Channels Section starts here -->
+
+            <section class="explore pt-5">
+                <div class="explore-title flex items-center justify-between">
+                    <h2 class="font-semibold dark:text-white/90 text-2xl">Explore Channels</h2>
+                    <a class="font-medium text-base text-violet-800 dark:text-violet-400" href="#">See all &nbsp;<i class="far fa-angle-double-right"></i></a>
+                </div>
+                <div class="explore-items grid grid-cols-6 gap-8 mt-5">
+                    <div class="channel">
+                        <div class="flex-[70%] flex items-center">
+                            <img src="./images/channels/1.png" alt="">
+                        </div>
+                        <span class="flex-[30%] uppercase font-medium">fox news</span>
+                    </div>
+                    <div class="channel">
+                        <div class="flex-[70%] flex items-center">
+                            <img src="./images/channels/2.png" alt="">
+                        </div>
+                        <span class="flex-[30%] uppercase font-medium">cw6 news</span>
+                    </div>
+                    <div class="channel">
+                        <div class="flex-[70%] flex items-center">
+                            <img src="./images/channels/3.png" alt="">
+                        </div>
+                        <span class="flex-[30%] uppercase font-medium">abc news</span>
+                    </div>
+                    <div class="channel">
+                        <div class="flex-[70%] flex items-center">
+                            <img src="./images/channels/4.png" alt="">
+                        </div>
+                        <span class="flex-[30%] uppercase font-medium">al jazeera</span>
+                    </div>
+                    <div class="channel">
+                        <div class="flex-[70%] flex items-center">
+                            <img src="./images/channels/5.png" alt="">
+                        </div>
+                        <span class="flex-[30%] uppercase font-medium">bbc news</span>
+                    </div>
+                    <div class="channel">
+                        <div class="flex-[70%] flex items-center">
+                            <img src="./images/channels/6.png" alt="">
+                        </div>
+                        <span class="flex-[30%] uppercase font-medium">cnn news</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Explore Channel Section Ends -->
+
+
+            <!-- Today's Headlines Section Starts Here -->
+
+            <section class="headlines pt-5">
+                <div class="flex items-center justify-between">
+                    <h2 class="font-semibold dark:text-white/90 text-2xl">Today's Headlines</h2>
+                    <a class="font-medium text-base text-violet-800 dark:text-violet-400" href="#">See all &nbsp;<i class="far fa-angle-double-right"></i></a>
+                </div>
+                <div class="grid grid-cols-3 gap-x-28 gap-y-6 pt-4">
+                    <div class="news">
+                        <div class="news_cover">
+                            <img src="./images/headlines/1.png" alt="">
+                        </div>
+                        <div class="news_body">
+                            <div class="news_title">
+                                <span>Hate speech vs free speech</span>
+                            </div>
+                            <div class="news_likes">
+                                <span><i class="fal fa-thumbs-up text-orange-500"></i> 10.8k</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span><i class="fal fa-thumbs-down"></i> 1.6k</span>
+                            </div>
+                            <div class="news_footer">
+                                <div class="news_channel">
+                                    <a href="#">bbc news</a>
+                                </div>
+                                <div class="news_time">
+                                    <span><i class="fad fa-clock"></i> 2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <div class="news_cover">
+                            <img src="./images/headlines/2.png" alt="">
+                        </div>
+                        <div class="news_body">
+                            <div class="news_title">
+                                <span>Ontario liberal leadership</span>
+                            </div>
+                            <div class="news_likes">
+                                <span><i class="fal fa-thumbs-up text-orange-500"></i> 10.3k</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span><i class="fal fa-thumbs-down"></i> 1.1k</span>
+                            </div>
+                            <div class="news_footer">
+                                <div class="news_channel">
+                                    <a href="#">bbc news</a>
+                                </div>
+                                <div class="news_time">
+                                    <span><i class="fad fa-clock"></i> 2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <div class="news_cover">
+                            <img src="./images/headlines/3.png" alt="">
+                        </div>
+                        <div class="news_body">
+                            <div class="news_title">
+                                <span>Victim of scarborough</span>
+                            </div>
+                            <div class="news_likes">
+                                <span><i class="fal fa-thumbs-up text-orange-500"></i> 13.6k</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span><i class="fal fa-thumbs-down"></i> 1.9k</span>
+                            </div>
+                            <div class="news_footer">
+                                <div class="news_channel">
+                                    <a href="#">bbc news</a>
+                                </div>
+                                <div class="news_time">
+                                    <span><i class="fad fa-clock"></i> 2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <div class="news_cover">
+                            <img src="./images/headlines/4.png" alt="">
+                        </div>
+                        <div class="news_body">
+                            <div class="news_title">
+                                <span>Mother who felt her baby</span>
+                            </div>
+                            <div class="news_likes">
+                                <span><i class="fal fa-thumbs-up text-orange-500"></i> 16.3k</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span><i class="fal fa-thumbs-down"></i> 1.7k</span>
+                            </div>
+                            <div class="news_footer">
+                                <div class="news_channel">
+                                    <a href="#">abc news</a>
+                                </div>
+                                <div class="news_time">
+                                    <span><i class="fad fa-clock"></i> 2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <div class="news_cover">
+                            <img src="./images/headlines/5.png" alt="">
+                        </div>
+                        <div class="news_body">
+                            <div class="news_title">
+                                <span>Mother of Stefanie Elizabeth</span>
+                            </div>
+                            <div class="news_likes">
+                                <span><i class="fal fa-thumbs-up text-orange-500"></i> 10.6k</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span><i class="fal fa-thumbs-down"></i> 2.5k</span>
+                            </div>
+                            <div class="news_footer">
+                                <div class="news_channel">
+                                    <a href="#">cw6 news</a>
+                                </div>
+                                <div class="news_time">
+                                    <span><i class="fad fa-clock"></i> 2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <div class="news_cover">
+                            <img src="./images/headlines/6.png" alt="">
+                        </div>
+                        <div class="news_body">
+                            <div class="news_title">
+                                <span>World Cup: Popular items</span>
+                            </div>
+                            <div class="news_likes">
+                                <span><i class="fal fa-thumbs-up text-orange-500"></i> 14.7k</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span><i class="fal fa-thumbs-down"></i> 1.2k</span>
+                            </div>
+                            <div class="news_footer">
+                                <div class="news_channel">
+                                    <a href="#">cnn news</a>
+                                </div>
+                                <div class="news_time">
+                                    <span><i class="fad fa-clock"></i> 2:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Today's Headlines Section Ends -->
+        </main>
     </div>
+
+    <script src="./scripts/script.js"></script>
 </body>
 </html>

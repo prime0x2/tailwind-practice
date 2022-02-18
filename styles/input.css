@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@400;500;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,12 +6,72 @@
 
 @layer base {
     body {
-        font-family: 'Asap', sans-serif;
+        font-family: "Asap", sans-serif;
     }
 }
 
 @layer components {
+    .nav-link-active {
+        @apply flex items-center text-sm px-2 py-3 rounded-xl bg-purple-900/25 text-purple-900 font-semibold dark:bg-purple-700 dark:text-white;
+    }
+
     .nav-link {
-        @apply flex items-center bg-transparent text-gray-600 text-sm px-2 py-3 rounded-xl;
+        @apply flex items-center bg-transparent text-gray-600 dark:text-white text-sm px-2 py-3 rounded-xl hover:bg-purple-900/25 hover:text-purple-900 dark:hover:bg-purple-700 hover:font-semibold;
+    }
+
+    .nav-link-icon {
+        @apply flex-[30%] text-center text-lg;
+    }
+
+    .theme-active {
+        @apply text-white;
+    }
+
+    .channel {
+        @apply bg-slate-100/50 dark:bg-slate-800 shadow-sm dark:shadow-md dark:shadow-slate-800/20 rounded-xl overflow-hidden h-32 flex items-center justify-center flex-col;
+    }
+
+    .channel span {
+        @apply dark:text-white/90;
+    }
+
+    .news {
+        @apply flex space-x-5 w-full;
+    }
+
+    .news_cover {
+        @apply flex-[30%];
+    }
+
+    .news_cover img {
+        @apply rounded-xl;
+    }
+
+    .news_body {
+        @apply flex-[70%] flex flex-col justify-around;
+    }
+
+    .news_title span {
+        @apply font-semibold dark:text-white/90;
+    }
+
+    .news_likes span {
+        @apply dark:text-gray-300;
+    }
+
+    .news_footer {
+        @apply flex items-center justify-between;
+    }
+
+    .news_channel a {
+        @apply px-2 py-1 bg-purple-200 dark:bg-purple-900 text-violet-900 dark:text-violet-300 rounded-md uppercase text-sm;
+    }
+
+    .news_time span {
+        @apply text-sm text-gray-600 dark:text-gray-400 font-medium;
+    }
+
+    .news_time i {
+        @apply mr-1;
     }
 }
